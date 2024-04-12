@@ -1,0 +1,9 @@
+To add the SFML library, use the following commands
+g++ -c main.cpp -I"C:\SFML-2.6.1\include"
+
+to link the SFML library to the proagram, use 
+g++ main.o -o main -L"C:\SFML-2.6.1\lib" -lsfml-graphics -lsfml-window -lsfml-system
+
+P.S: Path should be change for the tester's personal PC.
+
+more dependencies can be added as per need.
