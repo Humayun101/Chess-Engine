@@ -1,48 +1,39 @@
-#ifndef board_hpp
-#define board_hpp
-
+#pragma once 
 #include<iostream>
-#include<cassert>
-#include<stack>
+#include<fstream>
 #include<string>
-#include<array>
+#include"Pawn.h"
+#include"Rook.h"
+#include"Bishop.h"
+#include"King.h"
+#include"Knight.h"
+#include"Queen.h"
+#include"EmptyCell.h"
+#include<vector>
+#include<iterator>
 
-static constexpr int BOARD_AERA = 8;
 
- namespace chess{
-
-enum piecetype {KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN, NOT, NOT1};
-enum piececolor {BLACK, WHITE, GREY, ASSIGNED};
-enum movesval {OutOfBound, Illegal, PieceMismatch, LegalMove, BlockedPath, RuleViolation};
-enum boxstate {FILLED, EMPTY};
-
-
-struct Vec2i {
-int x; 
-int y;
-};
-struct ChessPiece{
-    piecetype type;
-    piececolor color;
-    Vec2i position; 
-};
-struct ChessMove
+class board
 {
-        Vec2i from;
-        Vec2i to;
-};
-struct Cell
-{
-    boxstate state;
-    ChessPiece *piece;
-};
+char player = 'W';
+bool makemove(int x1, int y1, int x2, int y2);
+void printboard();
+void w_file(string filename);
+
+public:
+    	Board();
+        ~Board();
+
+        char pieceIdentity(int i, int j, char c);
+        bool hasMoved(int i, int j, char c);
+
+        bool doMove()
+        void setBoard(int x, int y, char p)
+
+        bool playgame();
+        friend void showVector(vector <string> g );
+        void r_file(string filename);
+
+        Piece* boardMove[8][8]; 
 
 }
-#endif
-
-
-
-
-
-
-
